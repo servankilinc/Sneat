@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.15" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\assets\css\" />
+    <Folder Include="wwwroot\assets\vendor\libs\%40algolia\" />
+    <Folder Include="wwwroot\assets\vendor\libs\bootstrap-select\" />
+    <Folder Include="wwwroot\assets\vendor\libs\hammer\" />
+    <Folder Include="wwwroot\assets\vendor\libs\highlight\" />
+    <Folder Include="wwwroot\assets\vendor\libs\perfect-scrollbar\" />
+    <Folder Include="wwwroot\assets\vendor\libs\popper\" />
+    <Folder Include="wwwroot\assets\vendor\libs\select2\" />
+    <Folder Include="wwwroot\assets\vendor\libs\tagify\" />
+    <Folder Include="wwwroot\assets\vendor\libs\typeahead-js\" />
+  </ItemGroup>
+
+</Project>
