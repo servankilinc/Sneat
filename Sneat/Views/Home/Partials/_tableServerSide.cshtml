@@ -1,0 +1,264 @@
+﻿
+<div class="bg-white shadow p-3">
+    <form id="testForm" class="d-flex align-items-center gap-2">
+        <div class="input-group input-group-merge my-2 ">
+            <span class="input-group-text">
+                <i class="icon-base bx bx-search"></i>
+            </span>
+            <input type="text" class="form-control" name="lastName" value="Boş gönder" />
+        </div>
+        <button id="btn_filter_search" onclick="InitilazeTable()" type="button" class="btn btn-primary">
+            <i class="fa-solid fa-search me-2"></i>
+            Ara
+        </button>
+    </form>
+    <table id="datatables-basic" class=" table table-striped ">
+        <thead>
+            <tr>
+                <th>Seçiniz</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Date</th>
+                <th>Salary</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<script>    
+
+    let resultTable = null;
+
+    document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(() => {
+            let denemeModal = ModalManager.CreateModal({
+                innerHtml: "sadsada",
+                modalSize: "xl",
+                title: "Sipariş Detay",
+                buttons: [
+                    ModalManager.CreateButton({
+                        kind: ModalManager.buttonKinds.save,
+                        onClick: () => {
+                            alert("Oluşturna İsteği Atıldı");
+                        }
+                    }),
+                    ModalManager.CreateButton({
+                        kind: ModalManager.buttonKinds.update,
+                        onClick: () => {
+                            alert("Güncelleme İsteği Atıldı");
+                        }
+                    }),
+                ]
+            });
+            denemeModal.show(); 
+        },1000)
+    })
+
+
+    function InitilazeTable() {
+        RequestManager.Get({
+            path: "Api/GetAllByGetModelles",
+            buttonId: "btn_filter_search",
+            onSuccess: (response) => {
+ 
+                // ModalManager.CreateModal({
+                //     innerHtml: response,
+                //     modalSize: "xl",
+                //     title: "Sipariş Detay"
+                // })
+                 
+                resultTable = DatatableManager.GenerateByExistData({
+                    // serverSide: true,
+                    tableId: 'datatables-basic',
+                    // path: 'Api/GetAllByPost',
+                    // buttonId: 'btn_filter_search',
+                    // requestData: {userName : "KILINC"},
+                    // formId: 'testForm',
+                    // method: 'Post',
+                    data: response,
+                    hiddenColumnsInModal: [1],
+                    columns: [
+                        {
+                            data: '',
+                            orderable: false,
+                            responsive: false,
+                            responsivePriority: 3,
+                            searchable: false,
+                            checkboxes: true,
+                            render: function () {
+                                return '<input type="checkbox" class="dt-checkboxes form-check-input">';
+                            },
+                            checkboxes: {
+                                selectAllRender: '<input type="checkbox" class="form-check-input">'
+                            }
+                        },
+                        {
+                            data: 'full_name',
+                            responsive: false
+                        },
+                        { data: 'email' },
+                        { data: 'start_date', searchable: false, },
+                        { data: 'salary', searchable: false, },
+                        {
+                            data: 'status', searchable: false,
+                            render: function (data, type, full, meta) {
+                                var $status_number = full['status'];
+                                var $status = {
+                                    1: { title: 'Current', class: 'bg-label-primary' },
+                                    2: { title: 'Professional', class: ' bg-label-success' },
+                                    3: { title: 'Rejected', class: ' bg-label-danger' },
+                                    4: { title: 'Resigned', class: ' bg-label-warning' },
+                                    5: { title: 'Applied', class: ' bg-label-info' }
+                                };
+                                if (typeof $status[$status_number] === 'undefined') {
+                                    return data;
+                                }
+                                return (`<span class="badge rounded-pill ${$status[$status_number].class}"> ${$status[$status_number].title}</span>`);
+                            }
+                        },
+                        {
+                            data: '',
+                            orderable: false,
+                            searchable: false,
+                            render: function (data, type, full, meta) {
+                                return (`<div class="d-inline-block">
+                                            <a href="javascript:;" class="btn btn-sm text-primary btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                <i class="icon-base bx bx-dots-vertical-rounded"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                <li>
+                                                    <a href="javascript:;" class="dropdown-item">Details</a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="dropdown-item">Archive</a>
+                                                </li>
+                                                <div class="dropdown-divider"></div>
+                                                <li>
+                                                    <a href="javascript:;" class="dropdown-item text-danger delete-record">Delete</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <a href="javascript:;" class="btn btn-sm text-primary btn-icon item-edit">
+                                            <i class="icon-base bx bxs-edit"></i>
+                                        </a>`);
+                            }
+                        }
+                    ],
+                    order: [[3, 'asc']],
+                    customButtons: [
+                        {
+                            text: '<i class="icon-base bx bx-plus me-1"></i> <span class="d-none d-lg-inline-block">Update New Record</span>',
+                            className: 'create-new btn btn-warning mx-2'
+                        },
+                        {
+                            text: '<i class="icon-base bx bx-plus me-1"></i> <span class="d-none d-lg-inline-block">Add New Record</span>',
+                            className: 'create-new btn btn-success mx-2'
+                        },
+                        {
+                            text: '<i class="icon-base bx bx-plus me-1"></i> <span class="d-none d-lg-inline-block">Add New Record</span>',
+                            className: 'create-new btn btn-danger mx-2'
+                        },
+                    ]
+                })
+            }
+        })
+    }
+
+
+
+        // resultTable = DatatableManager.Generate({
+        //     serverSide: true,
+        //     tableId: 'datatables-basic',
+        //     path: 'Api/GetAllByPost',
+        //     buttonId: 'btn_filter_search',
+        //     // requestData: {userName : "KILINC"},
+        //     // formId: 'testForm',
+        //     method: 'Post',
+        //     // dataSrc: 'myData',
+        //     hiddenColumnsInModal: [1],
+        //     columns: [
+        //         {
+        //             data: '',
+        //             orderable: false,
+        //             responsive: false,
+        //             responsivePriority: 3,
+        //             searchable: false,
+        //             checkboxes: true,
+        //             render: function () {
+        //                 return '<input type="checkbox" class="dt-checkboxes form-check-input">';
+        //             },
+        //             checkboxes: {
+        //                 selectAllRender: '<input type="checkbox" class="form-check-input">'
+        //             }
+        //         },
+        //         {
+        //             data: 'full_name',
+        //             responsive: false
+        //         },
+        //         { data: 'email' },
+        //         { data: 'start_date', searchable: false, },
+        //         { data: 'salary', searchable: false, },
+        //         {
+        //             data: 'status', searchable: false,
+        //             render: function (data, type, full, meta) {
+        //                 var $status_number = full['status'];
+        //                 var $status = {
+        //                     1: { title: 'Current', class: 'bg-label-primary' },
+        //                     2: { title: 'Professional', class: ' bg-label-success' },
+        //                     3: { title: 'Rejected', class: ' bg-label-danger' },
+        //                     4: { title: 'Resigned', class: ' bg-label-warning' },
+        //                     5: { title: 'Applied', class: ' bg-label-info' }
+        //                 };
+        //                 if (typeof $status[$status_number] === 'undefined') {
+        //                     return data;
+        //                 }
+        //                 return (`<span class="badge rounded-pill ${$status[$status_number].class}"> ${$status[$status_number].title}</span>`);
+        //             }
+        //         },
+        //         {
+        //             data: '',
+        //             orderable: false,
+        //             searchable: false,
+        //             render: function (data, type, full, meta) {
+        //                 return (`<div class="d-inline-block">
+        //                             <a href="javascript:;" class="btn btn-sm text-primary btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+        //                                 <i class="icon-base bx bx-dots-vertical-rounded"></i>
+        //                             </a>
+        //                             <ul class="dropdown-menu dropdown-menu-end">
+        //                                 <li>
+        //                                     <a href="javascript:;" class="dropdown-item">Details</a>
+        //                                 </li>
+        //                                 <li>
+        //                                     <a href="javascript:;" class="dropdown-item">Archive</a>
+        //                                 </li>
+        //                                 <div class="dropdown-divider"></div>
+        //                                 <li>
+        //                                     <a href="javascript:;" class="dropdown-item text-danger delete-record">Delete</a>
+        //                                 </li>
+        //                             </ul>
+        //                         </div>
+        //                         <a href="javascript:;" class="btn btn-sm text-primary btn-icon item-edit">
+        //                             <i class="icon-base bx bxs-edit"></i>
+        //                         </a>`);
+        //             }
+        //         }
+        //     ],
+        //     order: [[3, 'asc']],
+        //     customButtons: [
+        //         {
+        //             text: '<i class="icon-base bx bx-plus me-1"></i> <span class="d-none d-lg-inline-block">Update New Record</span>',
+        //             className: 'create-new btn btn-warning mx-2'
+        //         },
+        //         {
+        //             text: '<i class="icon-base bx bx-plus me-1"></i> <span class="d-none d-lg-inline-block">Add New Record</span>',
+        //             className: 'create-new btn btn-success mx-2'
+        //         },
+        //         {
+        //             text: '<i class="icon-base bx bx-plus me-1"></i> <span class="d-none d-lg-inline-block">Add New Record</span>',
+        //             className: 'create-new btn btn-danger mx-2'
+        //         },
+        //     ]
+        // })
+</script>

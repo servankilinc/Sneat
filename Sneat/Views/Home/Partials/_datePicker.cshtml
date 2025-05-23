@@ -1,0 +1,46 @@
+﻿<div class="row mb-3">
+	<div class="col-md-3">
+		<label for="flatpickr-date" class="form-label">Date Picker</label>
+		<input type="text" class="form-control" placeholder="YYYY-MM-DD" id="flatpickr-date" />
+	</div>
+
+	<div class="col-md-3">
+		<label for="rangepicker-single" class="form-label">Single Range Picker</label>
+		<input type="text" id="rangepicker-single" class="form-control" />
+	</div>
+
+	<div class="col-md-3">
+		<label for="flatpickr-date" class="form-label">Clasic Date Picker</label>
+		<input type="text" class="form-control" placeholder="YYYY-MM-DD" id="datepicker-date" />
+	</div>
+</div>
+
+
+
+<script>
+	var flatpickrFriendly = document.querySelector("#flatpickr-date");
+
+	flatpickrFriendly.flatpickr({
+		altInput: true,
+		altFormat: "F j, Y",
+		dateFormat: "Y-m-d",
+		static: true,
+		todayBtn: true,
+		clearBtn: true,
+	});
+
+	$("#rangepicker-single").daterangepicker({
+		singleDatePicker: true,
+		opens: 'right'
+	});
+
+	// CLASIC DATE PICKER
+	$('#datepicker-date').datepicker({
+		todayBtn: true,
+		clearBtn: true,
+		language: "tr",
+		orientation: "bottom auto",
+		autoclose: true,
+		todayHighlight: true
+	});
+</script>

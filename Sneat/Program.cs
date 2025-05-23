@@ -1,15 +1,15 @@
 using Microsoft.EntityFrameworkCore;
 using Sneat.Context;
-using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 string connectionString = builder.Configuration.GetConnectionString("DbConnection")!;
-
-builder.Services.AddDbContext<MyDBContext>(options =>
+ 
+builder.Services.AddDbContext<MyDBContext>((sp, options)=>
     options.UseSqlServer(connectionString));
+ 
 
 var app = builder.Build();
 

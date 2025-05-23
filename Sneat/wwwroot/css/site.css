@@ -27,3 +27,14 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+@keyframes spinnerRotateAnimation {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.fa-spinner {
+    animation: spinnerRotateAnimation 2s infinite;
+}

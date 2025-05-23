@@ -18,8 +18,8 @@ namespace Sneat.Context
             if (dataTableRequest.Search != null && !string.IsNullOrEmpty(dataTableRequest.Search.Value) && dataTableRequest.Columns != null)
             {
                 var props = typeof(TData).GetProperties().Select(p => p.Name).ToDictionary(p => p.ToLower(), p => p);
-
-                foreach (var column in dataTableRequest.Columns.Where(c => c.Searchable && !string.IsNullOrWhiteSpace(c.Data)))
+                var searchableColumns = dataTableRequest.Columns.Where(c => c.Searchable && !string.IsNullOrWhiteSpace(c.Data));
+                foreach (var column in searchableColumns)
                 {
                     var key = column.Data!.ToLower();
                     if (props.TryGetValue(key, out var actualPropName))
@@ -27,9 +27,7 @@ namespace Sneat.Context
                         column.Data = actualPropName;
                     }
                 }
-                var filters = dataTableRequest.Columns
-                    .Where(c => c.Searchable && c.Data != null && props.Any(p => p.Value == c.Data))
-                    .Select(c => $"{c.Data}.Contains(@0.ToLower())");
+                var filters = searchableColumns.Select(c => $"{c.Data}.Contains(@0.ToLower())");
 
                 var searchPredicate = string.Join(" OR ", filters);
                 query = query.Where(searchPredicate, dataTableRequest.Search.Value.ToLower());

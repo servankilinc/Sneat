@@ -1,0 +1,80 @@
+﻿@* <script src="~/lib/jquery/dist/jquery.min.js"></script> *@
+@* <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> *@
+<!-- *********** SNERAT *********** -->
+
+<script src="~/assets/vendor/libs/jquery/jquery.js"></script>
+<script src="~/assets/vendor/libs/highlight/highlight.js"></script>
+<script src="~/assets/vendor/libs/clipboard/clipboard.js"></script>
+<script src="~/assets/vendor/libs/popper/popper.js"></script>
+<script src="~/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+<script src="~/assets/vendor/libs/@@algolia/autocomplete-js.js"></script>
+<script src="~/assets/vendor/libs/hammer/hammer.js"></script>
+<script src="~/assets/vendor/libs/i18n/i18n.js"></script>
+<script src="~/assets/vendor/libs/bloodhound/bloodhound.js"></script>
+
+<script src="~/assets/vendor/libs/apex-charts/apexcharts.js"></script>
+
+<!-- Main JS -->
+<script src="~/assets/vendor/libs/select2/select2.js"></script>
+<script src="~/assets/vendor/libs/tagify/tagify.js"></script>
+<script src="~/assets/vendor/libs/typeahead-js/typeahead.js"></script>
+<script src="~/assets/vendor/libs/bs-stepper/bs-stepper.js"></script>
+
+<script src="~/assets/vendor/js/bootstrap.js"></script>
+<script src="~/assets/js/config.js"></script>
+<script src="~/assets/vendor/js/menu.js"></script>
+<script src="~/assets/vendor/js/helpers.js"></script>
+<script src="~/assets/js/main.js"></script>
+<script src="~/assets/vendor/libs/bootstrap-select/bootstrap-select.js"></script>
+
+<script src="~/assets/vendor/libs/moment/moment.js"></script>
+<script src="~/assets/vendor/libs/flatpickr/flatpickr.js"></script>
+<script src="~/assets/vendor/libs/pickr/pickr.js"></script>
+<script src="~/assets/vendor/libs/bootstrap-daterangepicker/bootstrap-daterangepicker.js"></script>
+<script src="~/assets/vendor/libs/jquery-timepicker/jquery-timepicker.js"></script>
+
+<!-- *********** SNERAT *********** -->
+<script src="~/assets/vendor/libs/simple-notify/simple-notify.min.js"></script>
+
+<script src="~/js/site.js"></script>
+
+<script src="~/js/RequestManager.js"></script>
+<script src="~/js/AlertManager.js"></script>
+<script src="~/js/DatatableManager.js"></script>
+<script src="~/js/ModalManager.js"></script>
+
+<script src="~/assets/vendor/libs/bootstrap-datepicker-1.9.0/js/bootstrap-datepicker.min.js"></script>
+<script src="~/assets/vendor/libs/bootstrap-datepicker-1.9.0/locales/bootstrap-datepicker.tr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js" integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="~/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+
+
+<script>
+    window.paceOptions = {
+        ajax: {
+            trackMethods: ['GET', 'POST'],
+            ignoreURLs: [
+                "/heartbeat",
+                "/keepalive",
+                "signalr",
+                "__browserLink",
+                "browserLinkSignalR"
+            ]
+        },
+        document: true,
+        eventLag: false,
+        restartOnRequestAfter: false
+    };
+    
+    // jquery pace.js handle
+    $(document).ajaxStart(function () { Pace.restart(); });
+    
+    // fetch pace.js handle
+    const _fetch = window.fetch;
+    window.fetch = function (...args) {
+        Pace.restart();
+        return _fetch.apply(this, args);
+    };
+</script>
+<script src="~/assets/vendor/libs/pace/pace.min.js"></script>

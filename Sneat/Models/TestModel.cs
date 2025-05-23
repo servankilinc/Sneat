@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Hosting;
+using System.ComponentModel.DataAnnotations;
 
 namespace Sneat.Models
 {
     public class TestModel
     {
+        [Key]
         public int Id { get; set; }
         public string? Avatar { get; set; }
         public string? Full_name { get; set; }

@@ -24,7 +24,15 @@ namespace Sneat.Controllers
             var responseModel = query.ToDatatableClientSide();
             return responseModel;
         }
-    }
+
+
+		[HttpGet]
+		public List<TestModel> GetAllByGetModelles(ExampleRequest request)
+		{
+			var data = TestModelManager.List; 
+			return data;
+		}
+	}
 
     public class ExampleRequest: DatatableRequest
     {
