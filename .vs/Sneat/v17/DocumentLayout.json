@@ -3,28 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Express\\Desktop\\Sneat\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8FC42692-81FA-4954-B927-C604F2058A63}|Sneat\\Sneat.csproj|c:\\users\\express\\desktop\\sneat\\sneat\\wwwroot\\js\\requestmanager.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{8FC42692-81FA-4954-B927-C604F2058A63}|Sneat\\Sneat.csproj|solutionrelative:sneat\\wwwroot\\js\\requestmanager.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{8FC42692-81FA-4954-B927-C604F2058A63}|Sneat\\Sneat.csproj|c:\\users\\express\\desktop\\sneat\\sneat\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8FC42692-81FA-4954-B927-C604F2058A63}|Sneat\\Sneat.csproj|solutionrelative:sneat\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8FC42692-81FA-4954-B927-C604F2058A63}|Sneat\\Sneat.csproj|c:\\users\\express\\desktop\\sneat\\sneat\\wwwroot\\js\\datatablemanager.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{8FC42692-81FA-4954-B927-C604F2058A63}|Sneat\\Sneat.csproj|solutionrelative:sneat\\wwwroot\\js\\datatablemanager.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{8FC42692-81FA-4954-B927-C604F2058A63}|Sneat\\Sneat.csproj|c:\\users\\express\\desktop\\sneat\\sneat\\wwwroot\\js\\requestmanager.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{8FC42692-81FA-4954-B927-C604F2058A63}|Sneat\\Sneat.csproj|solutionrelative:sneat\\wwwroot\\js\\requestmanager.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8FC42692-81FA-4954-B927-C604F2058A63}|Sneat\\Sneat.csproj|c:\\users\\express\\desktop\\sneat\\sneat\\wwwroot\\js\\alertmanager.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{8FC42692-81FA-4954-B927-C604F2058A63}|Sneat\\Sneat.csproj|solutionrelative:sneat\\wwwroot\\js\\alertmanager.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8FC42692-81FA-4954-B927-C604F2058A63}|Sneat\\Sneat.csproj|c:\\users\\express\\desktop\\sneat\\sneat\\views\\home\\partials\\_tableserverside.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8FC42692-81FA-4954-B927-C604F2058A63}|Sneat\\Sneat.csproj|solutionrelative:sneat\\views\\home\\partials\\_tableserverside.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8FC42692-81FA-4954-B927-C604F2058A63}|Sneat\\Sneat.csproj|c:\\users\\express\\desktop\\sneat\\sneat\\wwwroot\\js\\modalmanager.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{8FC42692-81FA-4954-B927-C604F2058A63}|Sneat\\Sneat.csproj|solutionrelative:sneat\\wwwroot\\js\\modalmanager.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8FC42692-81FA-4954-B927-C604F2058A63}|Sneat\\Sneat.csproj|c:\\users\\express\\desktop\\sneat\\sneat\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8FC42692-81FA-4954-B927-C604F2058A63}|Sneat\\Sneat.csproj|solutionrelative:sneat\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8FC42692-81FA-4954-B927-C604F2058A63}|Sneat\\Sneat.csproj|c:\\users\\express\\desktop\\sneat\\sneat\\wwwroot\\js\\datatablemanager.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{8FC42692-81FA-4954-B927-C604F2058A63}|Sneat\\Sneat.csproj|solutionrelative:sneat\\wwwroot\\js\\datatablemanager.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FC42692-81FA-4954-B927-C604F2058A63}|Sneat\\Sneat.csproj|c:\\users\\express\\desktop\\sneat\\sneat\\views\\home\\partials\\_tableserverside.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8FC42692-81FA-4954-B927-C604F2058A63}|Sneat\\Sneat.csproj|solutionrelative:sneat\\views\\home\\partials\\_tableserverside.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8FC42692-81FA-4954-B927-C604F2058A63}|Sneat\\Sneat.csproj|c:\\users\\express\\desktop\\sneat\\sneat\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -42,17 +42,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "RequestManager.js",
               "DocumentMoniker": "C:\\Users\\Express\\Desktop\\Sneat\\Sneat\\wwwroot\\js\\RequestManager.js",
               "RelativeDocumentMoniker": "Sneat\\wwwroot\\js\\RequestManager.js",
               "ToolTip": "C:\\Users\\Express\\Desktop\\Sneat\\Sneat\\wwwroot\\js\\RequestManager.js",
               "RelativeToolTip": "Sneat\\wwwroot\\js\\RequestManager.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAALIAAAAFAAAA",
+              "ViewState": "AQIAAHYAAAAAAAAAAAAIwIEAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-05-22T11:16:46.275Z",
               "IsPinned": true,
@@ -60,13 +60,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "DatatableManager.js",
               "DocumentMoniker": "C:\\Users\\Express\\Desktop\\Sneat\\Sneat\\wwwroot\\js\\DatatableManager.js",
               "RelativeDocumentMoniker": "Sneat\\wwwroot\\js\\DatatableManager.js",
               "ToolTip": "C:\\Users\\Express\\Desktop\\Sneat\\Sneat\\wwwroot\\js\\DatatableManager.js",
               "RelativeToolTip": "Sneat\\wwwroot\\js\\DatatableManager.js",
-              "ViewState": "AQIAAGgAAAAAAAAAAAAgwI8AAAAvAAAA",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAAwIgAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-05-13T08:32:36.61Z",
               "IsPinned": true,
@@ -80,7 +80,7 @@
               "RelativeDocumentMoniker": "Sneat\\wwwroot\\js\\AlertManager.js",
               "ToolTip": "C:\\Users\\Express\\Desktop\\Sneat\\Sneat\\wwwroot\\js\\AlertManager.js",
               "RelativeToolTip": "Sneat\\wwwroot\\js\\AlertManager.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-05-26T06:41:13.563Z",
               "IsPinned": true,
@@ -88,7 +88,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "ModalManager.js",
               "DocumentMoniker": "C:\\Users\\Express\\Desktop\\Sneat\\Sneat\\wwwroot\\js\\ModalManager.js",
               "RelativeDocumentMoniker": "Sneat\\wwwroot\\js\\ModalManager.js",
@@ -115,13 +115,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Express\\Desktop\\Sneat\\Sneat\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Sneat\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\Express\\Desktop\\Sneat\\Sneat\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "Sneat\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAAJAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-05-13T11:31:03.38Z",
               "IsPinned": true,
@@ -129,13 +129,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "_tableServerSide.cshtml",
               "DocumentMoniker": "C:\\Users\\Express\\Desktop\\Sneat\\Sneat\\Views\\Home\\Partials\\_tableServerSide.cshtml",
               "RelativeDocumentMoniker": "Sneat\\Views\\Home\\Partials\\_tableServerSide.cshtml",
               "ToolTip": "C:\\Users\\Express\\Desktop\\Sneat\\Sneat\\Views\\Home\\Partials\\_tableServerSide.cshtml",
               "RelativeToolTip": "Sneat\\Views\\Home\\Partials\\_tableServerSide.cshtml",
-              "ViewState": "AQIAAC4AAAAAAAAAAAAwwD8AAAAmAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADMAAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-05-21T06:34:39.129Z",
               "IsPinned": true,

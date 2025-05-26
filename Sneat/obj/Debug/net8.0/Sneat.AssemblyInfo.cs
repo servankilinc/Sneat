@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Sneat")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+72175739cc9f4ab3180bd57569bde6dce6dc929e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ae18670e76ff277020898311f3e846cb8f129b03")]
 [assembly: System.Reflection.AssemblyProductAttribute("Sneat")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Sneat")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

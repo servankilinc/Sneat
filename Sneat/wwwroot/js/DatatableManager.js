@@ -103,7 +103,7 @@
             ajax: function (data, callback, settings) {
                 data = serverSide == true ? data : {};
                 if (requestData != null && typeof requestData === 'object') Object.assign(data, requestData);
-                
+
                 if (formId != null) {
                     const formDataArray = $(`#${formId}`).serializeArray();
                     const formDataObj = {};
@@ -134,10 +134,7 @@
                     },
                     error: function (xhr, status, error) {
                         const isThereOnError = onError != null && typeof onError === 'function';
-                        AlertManager.Error({
-                            text: "Bilgiler Alınırken Bir Sorun Oluştu!",
-                            callback: isThereOnError ? () => onError(error) : null
-                        });
+                        AlertManager.Error("Bilgiler Alınırken Bir Sorun Oluştu!").then(() => { if (isThereOnError) onError(error) });
                         callback({ data: [] });
                     },
                     complete: function () {
@@ -153,7 +150,7 @@
             retrieve: true,
             destroy: true,
             processing: true,
-            serverSide: serverSide, 
+            serverSide: serverSide,
             dom: dom == null ? this.defaultDom : dom,
             columns: columns,
             columnDefs: columnDefs,
@@ -201,10 +198,10 @@
             getSelectedRows: () => dt.rows().nodes().to$().find('input[type="checkbox"]:checked').closest('tr').map(() => dt.row(this).data()).get()
         };
     },
-     
+
     GenerateByExistData: function ({
         data = [],
-        tableId = "", 
+        tableId = "",
         dom = null,
         columns = [],
         columnDefs = [],
@@ -221,7 +218,7 @@
         lengthMenu = null,
         responsive = true,
         hiddenColumnsInModal = [],
-        extendedProps = {}, 
+        extendedProps = {},
     }) {
         if (responsive == true) {
             const thList = $(`#${tableId} thead tr th`);
@@ -248,7 +245,7 @@
         const _exportButton = structuredClone(this.exportButton);
         if (exportEnable == true && exportColumns != null && exportColumns.length > 0) {
             _exportButton.buttons.forEach(d => d.exportOptions.columns = exportColumns);
-        } 
+        }
 
         //if ($(`#${tableId}`).length > 0) $(`#${tableId}`).destroy();
 
@@ -256,7 +253,7 @@
             data: data,
             retrieve: true,
             destroy: true,
-            processing: true, 
+            processing: true,
             dom: dom == null ? this.defaultDom : dom,
             columns: columns,
             columnDefs: columnDefs,
@@ -304,8 +301,8 @@
             getSelectedRows: () => dt.rows().nodes().to$().find('input[type="checkbox"]:checked').closest('tr').map(() => dt.row(this).data()).get()
         };
     },
-     
-    GenerateByExistTable: function ({ 
+
+    GenerateByExistTable: function ({
         tableId = "",
         dom = null,
         columns = [],

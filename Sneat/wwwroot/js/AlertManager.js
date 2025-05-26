@@ -14,11 +14,7 @@
         customWrapper: '',
     },
 
-    Success: function ({
-        text = null,
-        title = null,
-        callback = null
-    }) {
+    Success: function (text, title) {
         new Notify({
             status: 'success',
             title: title || 'Başarılı!',
@@ -27,17 +23,15 @@
             ...this.defaultProps
         });
 
-        if (callback != null && typeof callback == 'function') {
+        let autotimeout = this.defaultProps.autotimeout;
+        let speed = this.defaultProps.speed;
+        return new Promise(function (resolve, reject) {
             setTimeout(function () {
-                callback();
-            }, this.defaultProps.autotimeout + (this.defaultProps.speed * 2));
-        }
+                resolve();
+            }, autotimeout + (speed * 2));
+        });
     },
-    Error: function ({
-        text = null,
-        title = null,
-        callback = null
-    }) {
+    Error: function (text, title) {
         new Notify({
             status: 'error',
             title: title || 'Hata!',
@@ -46,17 +40,15 @@
             ...this.defaultProps
         })
 
-        if (callback != null && typeof callback == 'function') {
+        let autotimeout = this.defaultProps.autotimeout;
+        let speed = this.defaultProps.speed;
+        return new Promise(function (resolve, reject) {
             setTimeout(function () {
-                callback();
-            }, this.defaultProps.autotimeout + (this.defaultProps.speed * 2));
-        }
+                resolve();
+            }, autotimeout + (speed * 2));
+        });
     },
-    Warning: function ({
-        text = null,
-        title = null,
-        callback = null
-    }) {
+    Warning: function (text, title) {
         new Notify({
             status: 'warning',
             title: title || 'Uyarı!',
@@ -65,17 +57,15 @@
             ...this.defaultProps
         })
 
-        if (callback != null && typeof callback == 'function') {
+        let autotimeout = this.defaultProps.autotimeout;
+        let speed = this.defaultProps.speed;
+        return new Promise(function (resolve, reject) {
             setTimeout(function () {
-                callback();
-            }, this.defaultProps.autotimeout + (this.defaultProps.speed * 2));
-        }
+                resolve();
+            }, autotimeout + (speed * 2));
+        });
     }, 
-    Info: function ({
-        text = null,
-        title = null,
-        callback = null
-    }) {
+    Info: function (text, title) {
         new Notify({
             status: 'info',
             title: title || 'Bilgi!',
@@ -84,10 +74,12 @@
             ...this.defaultProps
         })
 
-        if (callback != null && typeof callback == 'function') {
+        let autotimeout = this.defaultProps.autotimeout;
+        let speed = this.defaultProps.speed;
+        return new Promise(function (resolve, reject) {
             setTimeout(function () {
-                callback();
-            }, this.defaultProps.autotimeout + (this.defaultProps.speed * 2));
-        }
+                resolve();
+            }, autotimeout + (speed * 2));
+        });
     }
 }

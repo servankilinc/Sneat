@@ -123,17 +123,12 @@
                 success: function (response) {
                     const isThereOnSuccess = onSuccess != null && typeof onSuccess === 'function';
                     if (showToastrSuccess) {
-                        if (isThereOnSuccess == false) {
-                            AlertManager.Success({ text: successMessage });
+                        if (waitToastr) {
+                            AlertManager.Success(successMessage).then(() => { if (isThereOnSuccess) onSuccess(response) })
                         }
                         else {
-                            if (waitToastr) {
-                                AlertManager.Success({ text: successMessage, callback: () => onSuccess(response) });
-                            }
-                            else {
-                                AlertManager.Success({ text: successMessage });
-                                onSuccess(response);
-                            }
+                            AlertManager.Success(successMessage);
+                            if (isThereOnSuccess) onSuccess(response)
                         }
                     }
                     else if (isThereOnSuccess) onSuccess(response);
@@ -141,25 +136,19 @@
                     resolve(response);
                 },
                 error: function (xhr, status, error) {
+                    if (errorMessage == null && error != null) {
+                        if (error.message != null) errorMessage = error.message
+                        else if (error.data != null && error.data.message != null) errorMessage = error.data.message
+                    }
+
                     const isThereOnError = onError != null && typeof onError === 'function';
-
                     if (showToastrError) {
-                        if (errorMessage == null && error != null) {
-                            if (error.message != null) errorMessage = error.message
-                            else if (error.data != null && error.data.message != null) errorMessage = error.data.message
-                        }
-
-                        if (isThereOnError == false) {
-                            AlertManager.Error({ text: errorMessage });
+                        if (waitToastr) {
+                            AlertManager.Error(errorMessage).then(() => { if (isThereOnError) onError(error) });
                         }
                         else {
-                            if (waitToastr) {
-                                AlertManager.Error({ text: errorMessage, callback: () => onError(error) });
-                            }
-                            else {
-                                AlertManager.Error({ text: errorMessage });
-                                onError(error);
-                            }
+                            AlertManager.Error(errorMessage);
+                            if (isThereOnError) onError(error);
                         }
                     }
                     else if (isThereOnError) onError(error);
