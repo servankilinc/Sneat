@@ -133,10 +133,12 @@
                         if (onSuccess != null && typeof onSuccess === 'function') onSuccess();
                     },
                     error: function (xhr, status, error) {
-                        AlertManager.Error("Bilgiler Alınırken Bir Sorun Oluştu!");
-
+                        const isThereOnError = onError != null && typeof onError === 'function';
+                        AlertManager.Error({
+                            text: "Bilgiler Alınırken Bir Sorun Oluştu!",
+                            callback: isThereOnError ? () => onError(error) : null
+                        });
                         callback({ data: [] });
-                        if (onError != null && typeof onError === 'function') onError();
                     },
                     complete: function () {
                         if (buttonId != null) {

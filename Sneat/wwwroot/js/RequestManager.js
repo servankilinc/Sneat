@@ -11,6 +11,7 @@
         onSuccess = null,
         onAfter = null,
         onError = null,
+        waitToastr = false,
         showToastrSuccess = true,
         showToastrError = true,
         successMessage = null,
@@ -28,6 +29,7 @@
             onSuccess: onSuccess,
             onAfter: onAfter,
             onError: onError,
+            waitToastr: waitToastr,
             showToastrSuccess: showToastrSuccess,
             showToastrError: showToastrError,
             successMessage: successMessage,
@@ -45,6 +47,7 @@
         onSuccess = null,
         onAfter = null,
         onError = null,
+        waitToastr = false,
         showToastrSuccess = true,
         showToastrError = true,
         successMessage = null,
@@ -61,6 +64,7 @@
             onSuccess: onSuccess,
             onAfter: onAfter,
             onError: onError,
+            waitToastr: waitToastr,
             showToastrSuccess: showToastrSuccess,
             showToastrError: showToastrError,
             successMessage: successMessage,
@@ -79,6 +83,7 @@
         onSuccess = null,
         onAfter = null,
         onError = null,
+        waitToastr = false,
         showToastrSuccess = true,
         showToastrError = true,
         successMessage = null,
@@ -116,25 +121,49 @@
                     if (onBefore != null && typeof onBefore === 'function') onBefore();
                 },
                 success: function (response) {
-                    if (showToastrSuccess) AlertManager.Success(successMessage);
+                    const isThereOnSuccess = onSuccess != null && typeof onSuccess === 'function';
+                    if (showToastrSuccess) {
+                        if (isThereOnSuccess == false) {
+                            AlertManager.Success({ text: successMessage });
+                        }
+                        else {
+                            if (waitToastr) {
+                                AlertManager.Success({ text: successMessage, callback: () => onSuccess(response) });
+                            }
+                            else {
+                                AlertManager.Success({ text: successMessage });
+                                onSuccess(response);
+                            }
+                        }
+                    }
+                    else if (isThereOnSuccess) onSuccess(response);
 
-                    if (onSuccess != null && typeof onSuccess === 'function') onSuccess(response);
                     resolve(response);
                 },
                 error: function (xhr, status, error) {
-                    // ------------------ Alert Toastr ------------------
+                    const isThereOnError = onError != null && typeof onError === 'function';
+
                     if (showToastrError) {
                         if (errorMessage == null && error != null) {
                             if (error.message != null) errorMessage = error.message
                             else if (error.data != null && error.data.message != null) errorMessage = error.data.message
                         }
-                        AlertManager.Error(errorMessage);
+
+                        if (isThereOnError == false) {
+                            AlertManager.Error({ text: errorMessage });
+                        }
+                        else {
+                            if (waitToastr) {
+                                AlertManager.Error({ text: errorMessage, callback: () => onError(error) });
+                            }
+                            else {
+                                AlertManager.Error({ text: errorMessage });
+                                onError(error);
+                            }
+                        }
                     }
-                    // ------------------ Alert Toastr ------------------
-
-                    let onErrorExist = onError != null && typeof onError === 'function';
-                    if (onErrorExist) onError(error);
-
+                    else if (isThereOnError) onError(error);
+                    
                     reject(error)
                 },
                 complete: function () {
